@@ -1,4 +1,4 @@
-package com.epam.server.model;
+package com.epam.shared.model;
 
 import javax.persistence.Entity;
 
@@ -9,7 +9,16 @@ public class User {
     private String lastName;
     private String loginName;
     private String password;
+    private String email;
     private String steamKey;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getFirstName() {
         return firstName;
