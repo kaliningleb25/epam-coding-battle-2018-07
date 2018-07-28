@@ -3,9 +3,18 @@ package com.epam.client;
 import com.epam.client.service.GreetingService;
 import com.epam.client.service.GreetingServiceAsync;
 import com.epam.client.widgets.LoginDialogBox;
+import com.epam.client.widgets.SearchDialogBox;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
@@ -19,20 +28,33 @@ public class CoddingBattle implements EntryPoint {
   private final GreetingServiceAsync accountService = GWT.create(GreetingService.class);
 
   private LoginDialogBox loginDialogBox;
+  private SearchDialogBox searchDialogBox;
+  private Button searchButton = new Button("search");
+
+  public void initializeHeader() {
+    RootPanel search = RootPanel.get("search");
+    search.add(searchButton);
+    searchButton.addClickHandler(new ClickHandler() {
+      @Override
+      public void onClick(ClickEvent clickEvent) {
+        searchDialogBox.show();
+      }
+    });
+
+  }
 
   /**
    * This is the entry point method.
    */
   public void onModuleLoad() {
-
-
+    initializeHeader();
+    searchDialogBox = new SearchDialogBox(s -> { Window.alert("Search");});
     loginDialogBox = new LoginDialogBox((userName, password) -> {
       accountService.login(userName, password, new AsyncCallback<Boolean>() {
         @Override
         public void onFailure(Throwable throwable) {
 //          LOG.log(Level.SEVERE, "Login failed");
         }
-
         @Override
         public void onSuccess(Boolean result) {
           if (result) {
@@ -45,7 +67,6 @@ public class CoddingBattle implements EntryPoint {
           }
         }
       });
-
     });
 
 
