@@ -1,18 +1,23 @@
 /** Add css rules here for your application. */
 
 /** Example rules used by the template application (remove for your app) */
+body {
+    font-family: sans-serif;
+    background: #525252;
+    margin: 0;
+    padding: 0;
+    font-family:'Comfortaa', cursive;;
+}
 h1 {
     font-size: 2em;
     font-weight: bold;
-    color: #777777;
+    //color: #777777;
+    color: #3A3A3A;
     margin: 40px 0px 70px;
     text-align: center;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
+
 
 .sendButton {
     display: block;
@@ -57,14 +62,18 @@ header ul:after {
 header li {
     margin: 0 40px;
     float: right;
-    width: 14%;
+    width: 19%;
     text-decoration: none;
     color: white;
     padding: 5px;
+    border-radius: 5px;
 }
 
 header li:hover {
-    background: silver;
+    background: #464646;
+}
+#logo {
+    font-family:'Abril Fatface', cursive;
 }
 
 /** Set ids using widget.getElement().setId("idOfElement") */
