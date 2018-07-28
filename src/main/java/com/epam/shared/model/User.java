@@ -26,6 +26,8 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
+    private Integer trialRequests = 30;
+
     private String steamKey;
 
     public String getEmail() {
@@ -94,5 +96,13 @@ public class User {
             ", password='" + password + '\'' +
             ", steamKey='" + steamKey + '\'' +
             '}';
+    }
+
+    public Integer getTrialRequests() {
+        return trialRequests;
+    }
+
+    public void setTrialRequests(Integer trialRequests) {
+        this.trialRequests = trialRequests;
     }
 }

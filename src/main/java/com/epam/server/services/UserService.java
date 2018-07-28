@@ -29,4 +29,9 @@ public class UserService {
 
   }
 
+  public boolean couldUserMakeTrialRequest(String email){
+    User user = userRepository.getByEmail(email);
+    return user.getTrialRequests() > 0;
+  }
+
 }
