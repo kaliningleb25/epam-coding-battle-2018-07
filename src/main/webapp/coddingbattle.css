@@ -26,16 +26,13 @@ h1 {
 
 /** Most GWT widgets already have a style name defined */
 .gwt-DialogBox {
-    padding:10px;
+    margin:0 auto;
+    padding: 10px;
     text-align: center;
     color: white;
-    top: 49%;
-    left: 36%;
-    position: absolute;
     border: 2px solid white;
-    background: #525252;
+    background: #6b6b6b;
     width: 400px;
-    height: 400px;
 }
 
 .gwt-DialogBox textarea {
@@ -45,9 +42,9 @@ h1 {
     margin: 10px auto;
 }
 
-.gwt-DialogBox button{
-    font-size:inherit;
-    padding:inherit;
+.gwt-DialogBox button {
+    font-size: inherit;
+    padding: inherit;
     background: #2d2d2d;
     color: white;
     border: 0;
