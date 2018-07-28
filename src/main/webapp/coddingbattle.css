@@ -62,7 +62,7 @@ header ul:after {
 header li {
     margin: 0 40px;
     float: right;
-    width: 19%;
+    width: 14%;
     text-decoration: none;
     color: white;
     padding: 5px;
@@ -71,6 +71,12 @@ header li {
 
 header li:hover {
     background: #464646;
+}
+#avatar {
+    width:40px;
+    height:40px;
+    background: url(../resources/img/user.svg);
+
 }
 #logo {
     font-family:'Abril Fatface', cursive;
