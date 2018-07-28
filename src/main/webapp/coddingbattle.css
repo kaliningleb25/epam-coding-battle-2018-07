@@ -24,9 +24,9 @@ h1 {
 }
 
 /** Most GWT widgets already have a style name defined */
-.gwt-DialogBox {
-    width: 400px;
-}
+/*.gwt-DialogBox {*/
+    /*width: 400px;*/
+/*}*/
 
 .dialogVPanel {
     margin: 5px;
@@ -78,6 +78,7 @@ header li button {
     border-radius: 5px;
     font-size: inherit;
     text-transform: uppercase;
+    background: #464646;
 }
 
 header li:hover {
