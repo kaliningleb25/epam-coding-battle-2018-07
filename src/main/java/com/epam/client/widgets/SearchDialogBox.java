@@ -1,5 +1,7 @@
 package com.epam.client.widgets;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.*;
 
 import java.util.Arrays;
@@ -30,7 +32,17 @@ public class SearchDialogBox  extends DialogBox {
         buttonFind.addClickHandler(clickEvent -> onFindButtonAction.accept(argumentField.getText()));
 
         buttonFind.getElement().setId("findButton");
-        dialogVPanel.add(buttonFind);
+        HorizontalPanel dialogHPanel = new HorizontalPanel();
+        dialogHPanel.add(buttonFind);
+        final Button buttonClose = new Button("Cancel");
+        buttonClose.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                SearchDialogBox.this.hide();
+            }
+        });
+        dialogHPanel.add(buttonClose);
+        dialogVPanel.add(dialogHPanel);
         setWidget(dialogVPanel);
     }
 }
