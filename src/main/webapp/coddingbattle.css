@@ -6,18 +6,17 @@ body {
     background: #525252;
     margin: 0;
     padding: 0;
-    font-family:'Comfortaa', cursive;;
+    font-family: 'Comfortaa', cursive;;
 }
+
 h1 {
     font-size: 2em;
     font-weight: bold;
-    //color: #777777;
+/ / color: #777777;
     color: #3A3A3A;
     margin: 40px 0px 70px;
     text-align: center;
 }
-
-
 
 .sendButton {
     display: block;
@@ -46,6 +45,7 @@ header {
 }
 
 header ul {
+    margin-left: 0;
     text-transform: uppercase;
     margin: 0 10px;
     padding: 10px;
@@ -59,27 +59,53 @@ header ul:after {
     display: block;
 }
 
-header li {
+header li  {
     margin: 0 40px;
     float: right;
-    width: 14%;
+    width: 12%;
     text-decoration: none;
     color: white;
     padding: 5px;
     border-radius: 5px;
 }
 
+header li button {
+    background: inherit;
+    width:100%;
+    border: 0;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: inherit;
+    text-transform: uppercase;
+}
+
 header li:hover {
     background: #464646;
 }
-#avatar {
-    width:40px;
-    height:40px;
-    background: url(../resources/img/user.svg);
 
+#avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: -4px;
 }
+
+header li img {
+    width: 30px;
+    height: 30px;
+}
+#banner {
+    width:70%;
+    margin: auto;
+}
+#banner img {
+    width:100%;
+    opacity:0.5;
+}
+
 #logo {
-    font-family:'Abril Fatface', cursive;
+    font-family: 'Abril Fatface', cursive;
 }
 
 /** Set ids using widget.getElement().setId("idOfElement") */
