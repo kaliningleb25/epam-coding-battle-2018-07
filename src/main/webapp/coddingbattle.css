@@ -89,7 +89,7 @@ header ul:after {
 header li {
     margin: 0 40px;
     float: right;
-    width: 12%;
+    width: 11%;
     text-decoration: none;
     color: white;
     padding: 5px;
@@ -166,4 +166,15 @@ header li img {
     margin: 2%;
     width: 27%;
     float: left;
+}
+#requests {
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: block;
+    margin: auto;
+    overflow: hidden;
+    width: 30px;
+    height: auto;
+    margin-top: -4px;
 }
