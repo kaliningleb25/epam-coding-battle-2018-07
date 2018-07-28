@@ -39,4 +39,6 @@ public class SteamUserInfo {
     private String getAvatarUrl() {
         return PLAYER.getAvatarmedium();
     }
+
+    private String getCountryCode() { return PLAYER.getLoccountrycode(); }
 }
