@@ -1,5 +1,9 @@
 package com.epam.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import com.epam.server.services.AppConfig;
 import com.epam.server.services.UserService;
 import com.epam.shared.model.User;
@@ -31,11 +35,15 @@ public class UserServiceTest {
     user.setFirstName("Bill");
     user.setLastName("Murei");
     user.setLoginName("BSD777");
+    user.setEmail("bilmur@epam.com");
+    user.setPassword("123qwe");
 
     User user2 = new User();
     user2.setFirstName("Jim");
     user2.setLastName("Mall");
     user2.setLoginName("JML777");
+    user2.setEmail("jimmall@epam.com");
+    user2.setPassword("321ewq");
 
     service.saveUser(user);
     service.saveUser(user2);
@@ -43,5 +51,31 @@ public class UserServiceTest {
     User user1 = service.getUser(1L);
 
     System.out.println(user1);
+  }
+
+  @Test
+  public void userServiceCheckPasswordTest(){
+
+    User user = new User();
+    user.setFirstName("Bill");
+    user.setLastName("Murei");
+    user.setLoginName("BSD777");
+    user.setEmail("bilmur@epam.com");
+    user.setPassword("123qwe");
+
+    User user2 = new User();
+    user2.setFirstName("Jim");
+    user2.setLastName("Mall");
+    user2.setLoginName("JML777");
+    user2.setEmail("jimmall@epam.com");
+    user2.setPassword("321ewq");
+
+    service.saveUser(user);
+    service.saveUser(user2);
+
+    boolean checkPassword = service.checkPassword("bilmur@epam.com", "123qwe");
+    assertTrue(checkPassword);
+    boolean checkPassword2 = service.checkPassword("jimmall@epam.com", "ddd");
+    assertFalse(checkPassword2);
   }
 }
