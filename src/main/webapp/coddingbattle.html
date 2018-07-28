@@ -5,9 +5,9 @@
 <!-- with a "Quirks Mode" doctype is not supported. -->
 
 <html>
-  <head>
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa" rel="stylesheet">
     <!--                                                               -->
     <!-- Consider inlining CSS to reduce the number of requested files -->
     <!--                                                               -->
@@ -17,31 +17,64 @@
     <!-- Any title is fine                         -->
     <!--                                           -->
     <title>Web Application Starter Project</title>
-    
+
     <!--                                           -->
     <!-- This script loads your compiled module.   -->
     <!-- If you add any GWT meta tags, they must   -->
     <!-- be added before this line.                -->
     <!--                                           -->
     <script type="text/javascript" language="javascript" src="coddingbattle/coddingbattle.nocache.js"></script>
-  </head>
+</head>
 
-  <!--                                           -->
-  <!-- The body can have arbitrary html, or      -->
-  <!-- you can leave the body empty if you want  -->
-  <!-- to create a completely dynamic UI.        -->
-  <!--                                           -->
-  <body>
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- you can leave the body empty if you want  -->
+<!-- to create a completely dynamic UI.        -->
+<!--                                           -->
+<body>
 
-    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+<noscript>
+    <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
         Your web browser must have JavaScript enabled
         in order for this application to display correctly.
-      </div>
-    </noscript>
-
-    <h1>Web Application Starter Project</h1>
-
-  </body>
+    </div>
+</noscript>
+    <header>
+        <ul>
+            <li id="avatar">
+                <img src="../resources/img/user.svg" alt="">
+            </li>
+            <li id="purchases">
+            </li>
+            <li id="friends">
+            </li>
+            <li id="home">
+            </li>
+            <li id="search">
+            </li>
+            <li id="logo">
+                Team #3
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div id="banner">
+            <img src="../resources/img/banner.jpg" alt="">
+        </div>
+        <h1>Web Application Starter Project</h1>
+        <table align="center">
+            <tr>
+                <td colspan="2" style="font-weight:bold;">Please enter your name:</td>
+            </tr>
+            <tr>
+                <td id="nameFieldContainer"></td>
+                <td id="sendButtonContainer"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
+            </tr>
+        </table>
+    </main>
+</body>
 </html>

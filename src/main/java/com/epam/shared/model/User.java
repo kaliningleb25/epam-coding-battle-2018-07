@@ -1,15 +1,31 @@
 package com.epam.shared.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class User {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false, unique = true)
     private String loginName;
+
     private String password;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
     private String steamKey;
 
     public String getEmail() {
@@ -58,5 +74,25 @@ public class User {
 
     public void setSteamKey(String steamKey) {
         this.steamKey = steamKey;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id=" + id +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", loginName='" + loginName + '\'' +
+            ", password='" + password + '\'' +
+            ", steamKey='" + steamKey + '\'' +
+            '}';
     }
 }
