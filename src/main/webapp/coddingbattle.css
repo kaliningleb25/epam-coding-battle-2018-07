@@ -2,7 +2,6 @@
 
 /** Example rules used by the template application (remove for your app) */
 body {
-    font-family: sans-serif;
     background: #525252;
     margin: 0;
     padding: 0;
@@ -68,16 +67,14 @@ header {
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    height: 50px;
     background: black;
 }
 
 header ul {
+    background: black;
     text-transform: uppercase;
-    margin: 0 10px;
+    margin: 0 auto;
     padding: 10px;
-    width: 100%;
-    list-style: none;
 }
 
 header ul:after {
@@ -167,6 +164,7 @@ header li img {
     width: 27%;
     float: left;
 }
+
 #requests {
     padding: 10px;
     border-radius: 50%;
