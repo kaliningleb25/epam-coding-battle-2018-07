@@ -3,6 +3,7 @@ package com.epam.server.services;
 import java.sql.SQLException;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,35 +21,37 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @EnableJpaRepositories("com.epam.shared.model")
 public class AppConfig {
 
-  @Bean
-  public DataSource dataSource() throws SQLException {
-    return new EmbeddedDatabaseBuilder().setName("test").
-        setType(EmbeddedDatabaseType.H2).build();
-  }
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+            DataSource dataSource, JpaVendorAdapter jpaVendorAdapter
+    ) {
+        LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setJpaVendorAdapter(jpaVendorAdapter);
+        bean.setPackagesToScan("com.epam");
+        return bean;
+    }
 
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+        HibernateJpaVendorAdapter bean = new HibernateJpaVendorAdapter();
+        bean.setDatabase(Database.H2);
+        bean.setGenerateDdl(true);
 
-  @Bean
-  public LocalContainerEntityManagerFactoryBean entityManagerFactory(
-      DataSource dataSource, JpaVendorAdapter jpaVendorAdapter
-  ) {
-    LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-    bean.setDataSource(dataSource);
-    bean.setJpaVendorAdapter(jpaVendorAdapter);
-    bean.setPackagesToScan("com.epam");
-    return bean;
-  }
+        return bean;
+    }
 
-  @Bean
-  public JpaVendorAdapter jpaVendorAdapter() {
-    HibernateJpaVendorAdapter bean = new HibernateJpaVendorAdapter();
-    bean.setDatabase(Database.H2);
-    bean.setGenerateDdl(true);
-    return bean;
-  }
+    @Bean
+    public DataSource dataSource() throws SQLException {
+        return new EmbeddedDatabaseBuilder().setName("test").
+                setType(EmbeddedDatabaseType.H2)
+                                            .addScript("generatedb.sql")
+                                            .build();
+    }
 
-  @Bean
-  public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
-    return new JpaTransactionManager(emf);
-  }
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
+        return new JpaTransactionManager(emf);
+    }
 
 }

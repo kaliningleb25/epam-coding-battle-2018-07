@@ -6,7 +6,8 @@ import java.util.function.BiConsumer;
 
 public class LoginDialogBox extends DialogBox {
 
-    public LoginDialogBox(BiConsumer<String, String> onLoginButonClickAction) {
+
+    public LoginDialogBox(BiConsumer<String, String> onLoginButonClickAction, RegisterDialogBox registerDialogBox) {
         TextBox nameField = new TextBox();
         PasswordTextBox passwordField = new PasswordTextBox();
         Button loginButton = new Button();
@@ -20,7 +21,16 @@ public class LoginDialogBox extends DialogBox {
         verticalPanel.add(nameField);
         verticalPanel.add(new HTML("<br><b>" + "password field" + "</b>"));
         verticalPanel.add(passwordField);
-        verticalPanel.add(loginButton);
+
+        HorizontalPanel horizontalPanel = new HorizontalPanel();
+        horizontalPanel.add(loginButton);
+        Button registerButton = new Button();
+        registerButton.setText("Register");
+        registerButton.addClickHandler(clickEvent -> {
+            registerDialogBox.show();
+        });
+        horizontalPanel.add(registerButton);
+        verticalPanel.add(horizontalPanel);
 
 
         setAnimationEnabled(true);
